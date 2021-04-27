@@ -1,0 +1,8 @@
+.card-detail {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+.img-detail {
+    width: 450px;
+}

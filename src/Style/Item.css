@@ -1,0 +1,38 @@
+.cards {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.contador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contador p {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+}
+.contador button {
+    align-items: center;
+    padding: 1px 7px 1px 7px;
+    font-size: 18px;
+}
+.card-bottons {
+    display: flex;
+    flex-flow: row;
+}
+.card-bottons Button {
+    align-items: center;
+    margin: 10px 5px 10px 5px;
+    padding: 2.5px 4.2px 2.5px 4.2px;
+}
+.btn-secondary {
+    color: white;
+}
+.btn-secondary:hover {
+    outline: none;
+    text-decoration: none;
+}
