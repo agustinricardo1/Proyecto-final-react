@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+import Loading from '../Loading/Loading'
 
 const ItemDetailContainer = () => {
-    const [datos, setDatos] = useState({})
+    const [datos, setDatos] = useState([])
     const { id } = useParams()
     useEffect(() => {
         const catalogo = [
@@ -31,19 +32,19 @@ const ItemDetailContainer = () => {
         ]
         const catalogosPromise = new Promise((resolve, reject)=>{
             setTimeout(() => {
-
                 resolve(catalogo)
             }, 2000);
         })
         catalogosPromise.then(dato =>{
-            const itemFilter = dato.filter(item =>item.id ==`${id}`)
-            setDatos(itemFilter)
+            const itemFilterFind = dato.find(item => item.id ===`${id}`)
+            setDatos(itemFilterFind)
         })
     },[])
+    console.log(datos);
     return(
         <React.Fragment>
             <div>
-                {datos.length > 0 ? <ItemDetail datos={datos[0]}/> : <p>IMG CARGANDO</p>}
+                {datos.length == null ? <ItemDetail datos={datos}/> : <Loading/>}
             </div>
         </React.Fragment>
     )

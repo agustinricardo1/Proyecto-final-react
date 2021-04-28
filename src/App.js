@@ -5,6 +5,7 @@ import ItemNavbar from './Components/Navbar/ItemNavbar'
 import ItemListContainer from './Components/ItemList/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
 
+
 export default function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
