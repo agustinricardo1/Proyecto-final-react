@@ -1,7 +1,7 @@
 # Primera entrega del proyecto final
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-![](![Uploading gif-react.gif…])
+Se utilizó: Promises, map, routing, etc
+![Demo](demo/demo1.gif)
 
 
 
