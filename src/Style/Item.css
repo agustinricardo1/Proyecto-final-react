@@ -4,6 +4,9 @@
     flex-flow: row wrap;
     justify-content: center;
 }
+.contadorItemDetail {
+    margin: 20px 0px;
+}
 .contador {
     display: flex;
     justify-content: center;
@@ -20,19 +23,15 @@
     padding: 1px 7px 1px 7px;
     font-size: 18px;
 }
-.card-bottons {
-    display: flex;
-    flex-flow: row;
+.LinkCard {
+    text-decoration: none;
+    color: black;
 }
-.card-bottons Button {
-    align-items: center;
-    margin: 10px 5px 10px 5px;
-    padding: 2.5px 4.2px 2.5px 4.2px;
-}
-.btn-secondary {
-    color: white;
-}
-.btn-secondary:hover {
+.LinkCard:hover {
     outline: none;
     text-decoration: none;
+    color: black;
+}
+.Card:hover {
+    transform: scale(1.03, 1.03);
 }

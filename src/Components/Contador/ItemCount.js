@@ -24,11 +24,13 @@ const ItemCount = ({stock}) => {
 
     return(
         <React.Fragment>
-            <p>Cantidad en stock: {stockTotal}</p>
-            <div className='contador'>
-                <Button onClick={restar}>-</Button>
-                <p>{stockUser}</p>
-                <Button onClick={sumar}>+</Button>
+            <div className="contadorItemDetail">
+                <p>Cantidad en stock: {stockTotal}</p>
+                <div className='contador'>
+                    <Button onClick={restar}>-</Button>
+                    <p>{stockUser}</p>
+                    <Button onClick={sumar}>+</Button>
+                </div>
             </div>
         </React.Fragment>
     )

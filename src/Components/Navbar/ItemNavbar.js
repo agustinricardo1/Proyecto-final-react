@@ -2,9 +2,11 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import '../../Style/ItemNavbar.css'
 import {Link} from 'react-router-dom'
+import { useCartContext } from '../CartContext/cartContext'
 
 
-const ItemNavbar = () => {
+export const ItemNavbar = ({ categories }) => {
+    const { count } = useCartContext();
 
     return(
         <React.Fragment>
@@ -22,6 +24,7 @@ const ItemNavbar = () => {
                     </NavDropdown>
                     <Nav className='menu-item'>Contacto</Nav>
                     <Nav className='menu-item'><i class="fas fa-shopping-cart"></i></Nav>
+                    <Nav className='menu-item'>{count}</Nav>
                 </Navbar.Collapse>
             </Navbar>
         </React.Fragment>

@@ -40,7 +40,6 @@ const ItemDetailContainer = () => {
             setDatos(itemFilterFind)
         })
     },[])
-    console.log(datos);
     return(
         <React.Fragment>
             <div>
