@@ -1,36 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Button} from 'react-bootstrap'
 import '../../Style/Item.css'
 
-const ItemCount = ({stock}) => {
-    const [stockTotal, setStockTotal] = useState(stock)
-    const [stockUser, setStockUser] = useState(0)
-
-    const sumar = () => {
-        if (stockTotal === 0) {
-        }else{
-            setStockUser( stockUser + 1);
-            setStockTotal (stockTotal - 1);
-        }
-    }
-
-    const restar = () =>{
-        if (stockTotal === 0 | stockUser === 0) {
-        }else{
-            setStockUser(stockUser - 1);
-            setStockTotal(stockTotal + 1);
-        }
-    }
+const ItemCount = ({id,stockUser,stockTotal,sumar,restar,botonActivo,activo, onAdd, count}) => {
 
     return(
         <React.Fragment>
             <div className="contadorItemDetail">
-                <p>Cantidad en stock: {stockTotal}</p>
+                <p id={id}>Cantidad en stock: {stockTotal}</p>
                 <div className='contador'>
-                    <Button onClick={restar}>-</Button>
+                    <Button onClick={restar} disabled={!botonActivo}>-</Button>
                     <p>{stockUser}</p>
-                    <Button onClick={sumar}>+</Button>
+                    <Button onClick={sumar} disabled={!botonActivo}>+</Button>
                 </div>
+            </div>
+            <div>
+                <button onClick={()=> onAdd(count)} disabled={!activo}>Agregar al carrito</button>
             </div>
         </React.Fragment>
     )

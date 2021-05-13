@@ -3,15 +3,15 @@ import { BrowserRouter, Switch, Route, useHistory } from 'react-router-dom';
 import ItemNavbar from './Components/Navbar/ItemNavbar'
 import ItemListContainer from './Components/ItemList/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
-import { CartContext } from './Components/CartContext/cartContext'
+import { CartProvider } from './Components/CartContext/cartContext'
 
 export default function App() {
   return (
-    <CartContext.Provider>
+    <CartProvider>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <ItemNavbar/>
         <Switch>
-          <Route path='/Item/:id'>
+          <Route path='/item/:id'>
             <ItemDetailContainer/>
           </Route>
           <Route path='/'>
@@ -20,7 +20,7 @@ export default function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

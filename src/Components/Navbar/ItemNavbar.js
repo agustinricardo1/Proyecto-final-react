@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import { useCartContext } from '../CartContext/cartContext'
 
 
-export const ItemNavbar = ({ categories }) => {
+export const ItemNavbar = () => {
     const { count } = useCartContext();
 
     return(
