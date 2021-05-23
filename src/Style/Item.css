@@ -1,11 +1,74 @@
+.desktop {
+    border-color: #dbdbdb #535353 #535353 #dbdbdb;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #bfbfbf;
+    font-size: 13px;
+    padding: 2px;
+}
+.title {
+    background-color: grey;
+    padding: 2px 4px 3px;
+    position: relative;
+}
+.title h1 {
+    font-weight: 700;
+    color: #bcbcbc;
+    font-size: 13px;
+    margin: 0;
+}
+.tools{
+    list-style: none;
+    padding: 2px 0;
+    margin: 0;
+}
+.tools li {
+    display: inline-block;
+    padding: 0 5px;
+}
+.desktopContainer {
+    border-color: grey #c7c7c7 #c7c7c7 grey;
+    border-style: solid;
+    border-width: 2px;
+    background-color: #fafafa;
+    padding: 10px;
+}
 .cards {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    margin-top: 100px;
+    margin-bottom: 100px;
     justify-content: center;
 }
+.card {
+    background-color: transparent !important;
+    border: 0px solid !important;
+    text-align: center;
+    margin-right: 25px;
+    margin-left: 25px;
+}
+.priceCard {
+    font-size: 18px;
+}
+.containerSectionItem{
+    display: flex;
+    justify-content: space-evenly;
+}
+.containerSectionBtn {
+    display: flex;
+    justify-content: space-evenly;
+}
+.container-item {
+    display: flex;
+    flex-grow: 0.35;
+}
 .contadorItemDetail {
-    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+    padding: 5px;
+    flex-grow: 0;
 }
 .contador {
     display: flex;
@@ -23,6 +86,19 @@
     padding: 1px 7px 1px 7px;
     font-size: 18px;
 }
+.supBtn{
+    display: flex;
+    flex-grow: 0.32;
+}
+.btn-addItem{
+    display: flex;
+    flex-grow: 0;
+    margin: 50px 0px 50px 0px;
+}
+.btn-addItem button {
+    padding: 10px 20px 10px 20px;
+    border-radius: 6px;
+}
 .LinkCard {
     text-decoration: none;
     color: black;
@@ -34,4 +110,64 @@
 }
 .Card:hover {
     transform: scale(1.03, 1.03);
+}
+.lower-bar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    background-color: silver;
+    border-top: 3px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.windows-btn {
+    border-color: #fff #000 #000 #fff;
+    border-style: solid;
+    border-width: 2px;
+    flex-grow: 0;
+    height: 30px;
+    font-weight: 700;
+    padding: 2px;
+    width: 70px;
+    display: flex;
+    flex-grow: 0;
+}
+.timer {
+    flex-grow: 0;
+    position: relative;
+    flex-grow: 0;
+    width: 150px;
+    border-color: #6d6e6b #fff #fff #6d6e6b;
+    border-style: solid;
+    border-width: 2px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+.open-doc {
+    position: relative;
+    width: 230px;
+    border-color: #6d6e6b #fff #fff #6d6e6b;
+    border-style: solid;
+    border-width: 2px;
+    height: 32px;
+    display: flex;
+    flex-grow: 0;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px;
+    margin-left: 6px;
+    font-weight: 700;
+}
+.open-doc span {
+    margin-left: 3px;
+}
+.slot{
+    flex-grow: 1;
 }

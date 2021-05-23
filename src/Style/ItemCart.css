@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    text-align: center;
+}
+.CartTotal {
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row wrap;
+    margin: 0px 15px 0px 0px;
+}
+.CartBtn {
+    text-align: end;
+}
+.CartBtn button {
+    margin: 0px 15px 0px 15px;
+}
