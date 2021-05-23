@@ -43,7 +43,7 @@ export function CartProvider ({ children }) {
         console.log(datos)
         }
         else{
-        if(items.length < 4){
+        if(items.length < 10){
             setItems([...items, {...datos, qty: count}]);
         }
     }

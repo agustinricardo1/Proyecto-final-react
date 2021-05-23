@@ -9,7 +9,7 @@ const Cart = () => {
     console.log('items', items);
     return (
         <>
-            <section className="container desktop">
+            <section className="container desktop margin">
                 <div className="desktopContainer">
                     <div>
                         <table>
