@@ -12,7 +12,8 @@ const ItemDetail = ({datos}) => {
                 </div>
                 <div className='itemDetailText'>
                     <h1>{datos.title}</h1>
-                    <h4>$<b>{datos.price}</b></h4>
+                    <br/>
+                    <h4>Precio: $<b>{datos.price}</b> USD</h4>
                 </div>
             </div>
         </>

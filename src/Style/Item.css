@@ -55,10 +55,6 @@
     display: flex;
     justify-content: space-evenly;
 }
-.containerSectionBtn {
-    display: flex;
-    justify-content: space-evenly;
-}
 .container-item {
     display: flex;
     flex-grow: 0.35;
@@ -69,6 +65,7 @@
     flex-flow: column;
     padding: 5px;
     flex-grow: 0;
+    text-align: center;
 }
 .contador {
     display: flex;
@@ -98,6 +95,7 @@
 .btn-addItem button {
     padding: 10px 20px 10px 20px;
     border-radius: 6px;
+    margin: 0px 3px 0px 3px;
 }
 .LinkCard {
     text-decoration: none;
