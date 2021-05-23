@@ -10,7 +10,6 @@ import { getFirestore } from '../firebase'
 const ItemDetailContainer = () => {
     const [datos, setDatos] = useState([]);
     const {id} = useParams();
-    // const [addItems, items, tost] = useCartContext();
 
     useEffect(() => {
         console.log('datos', datos);
