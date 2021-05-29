@@ -1,6 +1,5 @@
 # Primera entrega del proyecto final
 
-Se utilizó: Promises, map, routing, etc
 ![Demo](demo/demo1.gif)
 
 
