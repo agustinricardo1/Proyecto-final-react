@@ -62,7 +62,7 @@ const Cart = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th style={{maxWidth: '300px'}}></th>
                                     <th>Nombre Producto</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
@@ -88,18 +88,20 @@ const Cart = () => {
                     </div>
                     <div className="CartBtn">
                         <div className="CartTotal">
-                            <div>Total:</div>
+                            <div><b>Total:</b></div>
                             <div>${total()}</div>
                         </div>
-                        <button onClick={clearItems}>Vaciar Carrito</button>
-                        <button onClick={handleCompra}>Confirmar compra</button>
-                        <button onClick={updateOrder}>Update</button>
+                        <button onClick={clearItems} className='btnCart'>Vaciar Carrito</button>
+                        <button onClick={updateOrder} className='btnCart'>Update</button>
+                        <button onClick={handleCompra} className='btnBuy'>Confirmar compra</button>
                     </div>
                     {
                         id &&
                         <>
-                            <h4>Su compra fue realizada con exito!</h4>
-                            <h4>Orden: {id}</h4>
+                            <div className='containerOrder'>
+                                <h4>Su compra fue realizada con exito!</h4>
+                                <p>Orden: {id}</p>
+                            </div>
                         </>
                     }
                 </div>

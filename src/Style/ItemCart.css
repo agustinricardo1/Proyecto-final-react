@@ -16,9 +16,24 @@ table {
 .CartBtn {
     text-align: end;
 }
-.CartBtn button {
-    margin: 0px 15px 0px 15px;
+.btnCart {
+    margin: 20px 5px 0px 5px;
+    padding: 6px;
+    font-size: 14px;
+}
+.btnBuy {
+    padding: 8px;
+    font-size: 16px;
+    margin: 20px 15px 0px 15px;
 }
 .margin {
     margin-bottom: 60px;
+}
+.containerOrder {
+    width: 100%;
+    text-align: center;
+    margin: 60px 0px 60px 0px;
+}
+.containerOrder p {
+    font-size: 18px;
 }
