@@ -7,7 +7,8 @@ import {Card} from 'react-bootstrap'
 import '../../Style/Item.css'
 
 
-export const ItemNavbar = ({count}) => {
+export const ItemNavbar = () => {
+    const {getUnits} = useCartContext()
 
     return(
         <React.Fragment>
@@ -35,7 +36,7 @@ export const ItemNavbar = ({count}) => {
                     </Link>
                     <Link to={'/cart'}>
                         <Card.Img variant="top" src={'https://win98icons.alexmeub.com/icons/png/recycle_bin_full-4.png'} style={{ width: '50px', height: '50px'}}/>
-                        <Nav className='menu-item'>Cart{count}</Nav>
+                        <Nav className='menu-item'>Cart <i>{getUnits()}</i></Nav>
                     </Link>
                 </Navbar.Collapse>
             </Navbar>

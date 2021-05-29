@@ -2,11 +2,16 @@ table {
     width: 100%;
     text-align: center;
 }
+.td_text {
+    font-size: 22px;
+}
 .CartTotal {
     display: flex;
     justify-content: flex-end;
     flex-flow: row wrap;
-    margin: 0px 15px 0px 0px;
+    margin: 0px 20px 0px 0px;
+    font-size: 24px;
+    padding: 5px;
 }
 .CartBtn {
     text-align: end;

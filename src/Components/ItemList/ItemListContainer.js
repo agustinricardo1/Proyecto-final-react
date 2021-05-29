@@ -6,6 +6,7 @@ import ItemNavbar from '../Navbar/ItemNavbar'
 import ItemCount from '../Contador/ItemCount'
 import ItemCountContainer from '../Contador/ItemCountContainer'
 import { useParams } from 'react-router'
+import Loading from '../Loading/Loading'
 
 const ItemListContainer = () => {
     const [  arrayItems, setArrayItems ] = useState([])
@@ -51,12 +52,12 @@ const ItemListContainer = () => {
                     </ul>
                     <div className="desktopContainer">
                         <div className='cards'>
-                            {
+                            { arrayItems.length > 0 ?
                                 arrayItems.map((dato)=>
                                     <div key={dato.id}>
                                         <Item img={dato.img} title={dato.title} price={dato.price} stock={dato.stock} id={dato.id} categoryId={dato.categoryId}/>
                                     </div>
-                                )
+                                ) : <Loading/>
                             }
                         </div>
                     </div>
