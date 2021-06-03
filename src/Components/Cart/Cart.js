@@ -8,6 +8,7 @@ import 'firebase/firestore'
 import { useState, useEffect, useContext } from 'react';
 import { getFirestore } from '../firebase'
 import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 const Cart = () => {
     const {items, removeItems, clearItems, total} = useContext(CartContext)
@@ -33,20 +34,42 @@ const Cart = () => {
         }
         items.length && setOrder(order)
         items.length !== 0 ?
-        swal({
-            title: 'Su compra fue realizada con éxito!',
-            text: ' ',
-            icon: 'success',
-            buttons: 'Close',
-        }) : swal({
+        confirmCompra()
+        : swal({
             title: 'El carrito está vacío!',
             text: ' ',
             icon: 'warning',
             buttons: 'Close',
         });
     }
-
-    console.log(order);
+    const confirmCompra = () => {
+        (async () => {
+            const { value: formValues } = await Swal.fire({
+                title: 'Ingrese sus datos',
+                html:
+                    '<label>Nombre:</label>' +
+                    '<input id="swal-input1" class="swal2-input">' +
+                    '<br/>' +
+                    '<label htmlFor="">Email:</label>' +
+                    '<input id="swal-input2" class="swal2-input">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    return (
+                    document.getElementById('swal-input1').value
+                    )
+                }
+            })
+            if (document.getElementById('swal-input1').value) {
+                swal({
+                    title: 'Su compra fue realizada con éxito!',
+                    text: `Gracias por su compra ${(formValues)} `,
+                    icon: 'success',
+                    buttons: 'Close',
+                })
+            }
+        })()
+    }
+    
     const updateOrder = () => {
         if (order.items) {
             const order = orders.doc(id)
