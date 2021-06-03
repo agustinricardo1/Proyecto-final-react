@@ -7,6 +7,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { useState, useEffect, useContext } from 'react';
 import { getFirestore } from '../firebase'
+import swal from 'sweetalert'
 
 const Cart = () => {
     const {items, removeItems, clearItems, total} = useContext(CartContext)
@@ -31,19 +32,33 @@ const Cart = () => {
             total: total(),
         }
         items.length && setOrder(order)
-        console.log(order);
+        items.length !== 0 ?
+        swal({
+            title: 'Su compra fue realizada con éxito!',
+            text: ' ',
+            icon: 'success',
+            buttons: 'Close',
+        }) : swal({
+            title: 'El carrito está vacío!',
+            text: ' ',
+            icon: 'warning',
+            buttons: 'Close',
+        });
     }
 
+    console.log(order);
     const updateOrder = () => {
-        const order = orders.doc(id)
-        order.update({
-            status: "enviado",
-            total: "100"
-        })
-        .then((res)=>{
-            console.log('res', res);
-        })
-        .catch((err)=> console.log('err', err))
+        if (order.items) {
+            const order = orders.doc(id)
+            order.update({
+                status: "enviado",
+                total: "100"
+            })
+            .then((res)=>{
+                console.log('res', res);
+            })
+            .catch((err)=> console.log('err', err))
+        }
     }
 
     useEffect(() => {
@@ -99,7 +114,7 @@ const Cart = () => {
                         id &&
                         <>
                             <div className='containerOrder'>
-                                <h4>Su compra fue realizada con exito!</h4>
+                                <h4>Gracias por su compra!</h4>
                                 <p>Orden: {id}</p>
                             </div>
                         </>

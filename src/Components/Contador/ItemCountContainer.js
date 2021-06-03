@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ItemCount from './ItemCount';
 import {useCartContext} from '../CartContext/cartContext'
 import ItemNavbar from '../Navbar/ItemNavbar';
+import swal from 'sweetalert'
 
 // realiza toda la logica del contador de unidades.
 
@@ -47,9 +48,18 @@ const ItemCountContainer = ({stock, datos}) => {
         }
     }
 
+    const alertAddCart = () => {
+        swal({
+            title: 'Se agregó correctamente!',
+            text: ' ',
+            icon: 'success',
+            timer: 1550,
+            buttons:['']
+        })
+    }
     const onAdd = (count) => {
         addItems(count, datos)
-        items.length !== null ? console.log('Agregaste al carrito!') :
+        items.length !== null ? alertAddCart() :
             console.log('Error')
     }
     

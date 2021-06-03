@@ -23,13 +23,6 @@ const ItemCount = ({id,stockUser,stockTotal,sumar,restar,botonActivo,activo, onA
                             items.length !== 0 ? <Link to={'/cart'}><button>Ir al carrito</button></Link> : console.log('Carrito vacío')
                         }
                     </div>
-                        {
-                            items.length !== 0 ? 
-                            <div>
-                                <h5>Se ha agregado al carrito</h5>
-                            </div>
-                            : console.log('Error al intenar comprar')
-                        }
                 </div>
             </section>
         </React.Fragment>

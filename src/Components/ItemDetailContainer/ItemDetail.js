@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../Style/ItemDetail.css'
-import Container from '../Container/Container'
 
 
 const ItemDetail = ({datos}) => {
