@@ -13,26 +13,13 @@ import Swal from 'sweetalert2'
 const Cart = () => {
     const {items, removeItems, clearItems, total} = useContext(CartContext)
     const [id, setId] = useState("")
-    const [user, setUser] = useState({
-        name: "Lionel Messi",
-        email: "messi@gmail.com",
-    });
+    const [user, setUser] = useState({});
     const [order, setOrder] = useState({})
 
     const db = getFirestore();
     const orders = db.collection("orders")
     
     const handleCompra = () => {
-        let order = {
-            buyer: {
-                name: user.name,
-                email: user.email,
-            },
-            items: items,
-            date: firebase.firestore.Timestamp.fromDate(new Date()),
-            total: total(),
-        }
-        items.length && setOrder(order)
         items.length !== 0 ?
         confirmCompra()
         : swal({
@@ -41,35 +28,63 @@ const Cart = () => {
             icon: 'warning',
             buttons: 'Close',
         });
+        let order = {
+            buyer: {
+                name: user.name,
+                email: user.email
+            },
+            items: items,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: total(),
+        }
+        if (items.length && user.name && user.email) {
+            setOrder(order)
+        }
     }
+
     const confirmCompra = () => {
         (async () => {
             const { value: formValues } = await Swal.fire({
                 title: 'Ingrese sus datos',
                 html:
-                    '<label>Nombre:</label>' +
-                    '<input id="swal-input1" class="swal2-input">' +
-                    '<br/>' +
-                    '<label htmlFor="">Email:</label>' +
-                    '<input id="swal-input2" class="swal2-input">',
+                    `<form>
+                        <label>Nombre:</label>
+                            <input type='text' id="swal-input1" name="name" class="swal2-input" required/>
+                        <br/>
+                        <label>Email:</label>
+                            <input type='email' id="swal-input2" name="email" class="swal2-input" required/>
+                    </form>
+                    `
+                    ,
                 focusConfirm: false,
                 preConfirm: () => {
-                    return (
-                    document.getElementById('swal-input1').value
-                    )
+                    return [
+                    setUser({
+                        name: document.getElementById('swal-input1').value, 
+                        email: document.getElementById('swal-input2').value 
+                    }),
+                    document.getElementById('swal-input1').value,
+                    ]
                 }
             })
             if (document.getElementById('swal-input1').value) {
                 swal({
                     title: 'Su compra fue realizada con éxito!',
-                    text: `Gracias por su compra ${(formValues)} `,
+                    text: `Gracias por su compra ${(formValues)}`,
                     icon: 'success',
+                    buttons: 'Close',
+                })
+            } else {
+                swal({
+                    title: 'Datos erróneos',
+                    text: ' ',
+                    icon: 'warning',
                     buttons: 'Close',
                 })
             }
         })()
     }
-    
+
     const updateOrder = () => {
         if (order.items) {
             const order = orders.doc(id)
@@ -83,6 +98,8 @@ const Cart = () => {
             .catch((err)=> console.log('err', err))
         }
     }
+    console.log('comprador', user);
+    console.log('orden',order);
 
     useEffect(() => {
         if (order.items) {
@@ -134,7 +151,7 @@ const Cart = () => {
                         <button onClick={handleCompra} className='btnBuy'>Confirmar compra</button>
                     </div>
                     {
-                        id &&
+                        id && user.name && user.email &&
                         <>
                             <div className='containerOrder'>
                                 <h4>Gracias por su compra!</h4>

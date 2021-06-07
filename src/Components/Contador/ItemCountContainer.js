@@ -53,7 +53,7 @@ const ItemCountContainer = ({stock, datos}) => {
             title: 'Se agregó correctamente!',
             text: ' ',
             icon: 'success',
-            timer: 1550,
+            timer: 1300,
             buttons:['']
         })
     }
