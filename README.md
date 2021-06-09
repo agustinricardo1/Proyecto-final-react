@@ -1,4 +1,4 @@
-# Primera entrega del proyecto final
+# Proyecto final curso de ReactJS
 
 ![Demo](demo/demo.gif)
 
