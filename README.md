@@ -1,6 +1,6 @@
 # Primera entrega del proyecto final
 
-![Demo](demo/demo1.gif)
+![Demo](demo/demo.gif)
 
 
 
