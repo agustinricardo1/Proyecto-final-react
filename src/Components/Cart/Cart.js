@@ -1,6 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
-import {CartContext, useCartContext} from '../CartContext/cartContext'
+import {CartContext} from '../CartContext/cartContext'
 import '../../Style/Item.css'
 import '../../Style/ItemCart.css'
 import firebase from 'firebase/app'
@@ -85,21 +84,6 @@ const Cart = () => {
         })()
     }
 
-    const updateOrder = () => {
-        if (order.items) {
-            const order = orders.doc(id)
-            order.update({
-                status: "enviado",
-                total: "100"
-            })
-            .then((res)=>{
-                console.log('res', res);
-            })
-            .catch((err)=> console.log('err', err))
-        }
-    }
-    console.log('comprador', user);
-    console.log('orden',order);
 
     useEffect(() => {
         if (order.items) {
@@ -147,7 +131,6 @@ const Cart = () => {
                             <div>${total()}</div>
                         </div>
                         <button onClick={clearItems} className='btnCart'>Vaciar Carrito</button>
-                        <button onClick={updateOrder} className='btnCart'>Update</button>
                         <button onClick={handleCompra} className='btnBuy'>Confirmar compra</button>
                     </div>
                     {

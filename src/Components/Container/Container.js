@@ -1,6 +1,5 @@
 import React from 'react'
 import '../../Style/Item.css'
-import ItemDetail from '../ItemDetailContainer/ItemDetail'
 import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 
 export default function Container () {

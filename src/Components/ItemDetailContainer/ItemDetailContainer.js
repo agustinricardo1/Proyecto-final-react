@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-import Loading from '../Loading/Loading'
 import ItemCountContainer from '../Contador/ItemCountContainer'
 import { getFirestore } from '../firebase'
 
@@ -11,7 +10,6 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        console.log('datos', datos);
         const db = getFirestore();
         const itemCollection = db.collection("items")
         const detailItem = itemCollection.doc(id);
@@ -26,7 +24,8 @@ const ItemDetailContainer = () => {
 
     return(
         <React.Fragment>
-                {datos.length == null ? <ItemDetail datos={datos}/> : <Loading/>}
+                {datos && <ItemDetail datos={datos}/> }
+                {/* {datos.length == null ? <ItemDetail datos={datos}/> : <Loading/>} */}
                 {datos.length == null ? <ItemCountContainer stock={datos.stock} datos={datos}/> : console.log('Error count')}
         </React.Fragment>
     )
